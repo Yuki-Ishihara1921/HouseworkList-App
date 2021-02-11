@@ -1,0 +1,18 @@
+{
+  "name": "houseworklist-app",
+  "version": "1.0.0",
+  "description": "You can make your tasks for your housework.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "cd front_react && npm install && npm run build && cd ..",
+    "deploy": "cp -a front_react/build/. public/",
+    "heroku-postbuild": "npm run build && npm run deploy && echo 'Client built!'"
+  },
+  "author": "Yuki Ishihara",
+  "license": "ISC"
+}
