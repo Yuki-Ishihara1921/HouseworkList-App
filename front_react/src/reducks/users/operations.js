@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { push } from 'connected-react-router'
 import { setCookie, removeCookie, getCookieObject } from '../../functions/cookies'
+import { isValidEmailFormat } from '../../functions/validates'
 import { signInAction, signOutAction } from './actions'
 
 export const signUp = (username, email, password, confirmPassword) => {
@@ -8,10 +9,20 @@ export const signUp = (username, email, password, confirmPassword) => {
         if (username === "" || email === "" || password === "" || confirmPassword === "") {
             alert("未入力の項目があります。")
             return false
-        } else if (password !== confirmPassword) {
+        } 
+        if (password !== confirmPassword) {
             alert("パスワードが一致しておりません。")
             return false
-        } else {
+        } 
+        if (!isValidEmailFormat(email)) {
+            alert("メールアドレスの形式が正しくありません。再入力して下さい。")
+            return false
+        } 
+        if (password.length < 8 ) {
+            alert("パスワードは8文字以上で入力して下さい。")
+            return false
+        }
+        else {
             const res = window.confirm("こちらの内容でアカウントを登録しますか？")
             if (!res) {
                 return false
@@ -35,7 +46,7 @@ export const signUp = (username, email, password, confirmPassword) => {
                     dispatch(push('/'))
                 })
                 .catch(() => {
-                    alert("アカウントが登録されませんでした。通信環境をご確認下さい。")
+                    alert("アカウントが登録されませんでした。再入力して下さい。")
                     return false
                 })
             }
@@ -48,28 +59,31 @@ export const signIn = (email, password) => {
         if (email === "" || password === "") {
             alert("未入力の項目があります。")
             return false
-        } else {
-            const signInUser = {
-                email: email,
-                password: password
-            }
-            axios
-            .post(`${process.env.REACT_APP_SERVER_URL}/api/sessions`, signInUser)
-            .then(response => {
-                const data = response.data
-                dispatch(signInAction({
-                    isSignedIn: true,
-                    username: data.username,
-                    usertoken: data.usertoken
-                }))
-                setCookie(data.username, data.usertoken)
-                dispatch(push('/'))
-            })
-            .catch(() => {
-                alert("ログインできませんでした。入力内容または通信環境をご確認下さい。")
-                return false
-            })
         }
+        if (!isValidEmailFormat(email)) {
+            alert("メールアドレスの形式が正しくありません。再入力して下さい。")
+            return false
+        }
+        const signInUser = {
+            email: email,
+            password: password
+        }
+        axios
+        .post(`${process.env.REACT_APP_SERVER_URL}/api/sessions`, signInUser)
+        .then(response => {
+            const data = response.data
+            dispatch(signInAction({
+                isSignedIn: true,
+                username: data.username,
+                usertoken: data.usertoken
+            }))
+            setCookie(data.username, data.usertoken)
+            dispatch(push('/'))
+        })
+        .catch(() => {
+            alert("ユーザーが見つかりませんでした。")
+            return false
+        })
     }
 }
 

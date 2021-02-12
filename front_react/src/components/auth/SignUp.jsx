@@ -5,6 +5,7 @@ import { Form } from 'react-bootstrap'
 import { PersonCircle, Envelope, Key } from 'react-bootstrap-icons'
 import { TextInput, ClickButton } from '../UIkit'
 import { signUp } from '../../reducks/users/operations'
+import { validateEmail, validatePassword } from '../../functions/validates'
 
 const SignUp = () => {
     const dispatch = useDispatch()
@@ -12,7 +13,10 @@ const SignUp = () => {
           [username, setUsername] = useState(""),
           [email, setEmail] = useState(""),
           [password, setPassword] = useState(""),
-          [confirmPassword, setConfirmPassword] = useState("")
+          [confirmPassword, setConfirmPassword] = useState(""),
+          [emailMessage, setEmailMessage] = useState(""),
+          [passwordMessage, setPasswordMessage] = useState(""),
+          [confirmPasswordMessage, setConfirmPasswordMessage] = useState("")
 
     const inputUsername = useCallback((e) => {
         setUsername(e.target.value)
@@ -20,14 +24,17 @@ const SignUp = () => {
 
     const inputEmail = useCallback((e) => {
         setEmail(e.target.value)
+        setEmailMessage(validateEmail(e.target.value))
     }, [setEmail])
 
     const inputPassword = useCallback((e) => {
         setPassword(e.target.value)
+        setPasswordMessage(validatePassword(e.target.value))
     }, [setPassword])
 
     const inputConfirmPassword = useCallback((e) => {
         setConfirmPassword(e.target.value)
+        setConfirmPasswordMessage(validatePassword(e.target.value))
     }, [setConfirmPassword])
 
 
@@ -48,14 +55,17 @@ const SignUp = () => {
                             label={"メールアドレス"} icon={<Envelope />}
                             type={"email"} onChange={inputEmail}
                         />
+                        <p className="text-danger">{emailMessage}</p>
                         <TextInput
                             label={"パスワード"} icon={<Key />}
                             type={"password"} onChange={inputPassword}
                         />
+                        <p className="text-danger">{passwordMessage}</p>
                         <TextInput
                             label={"パスワード(確認用)"} icon={<Key />}
                             type={"password"} onChange={inputConfirmPassword}
                         />
+                        <p className="text-danger">{confirmPasswordMessage}</p>
                         <div className="m-4 text-center">
                             <ClickButton
                                 variant={"primary"} label={"登録"}
