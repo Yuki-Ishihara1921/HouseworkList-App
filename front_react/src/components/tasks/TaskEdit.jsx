@@ -44,7 +44,7 @@ const TaskEdit = (props) => {
         <Form>
             <h4 className="text-headline">タスク編集</h4>
             <TextInput
-                label={"● やること"} type={"text"}
+                label={"● やること"} type={"text"} placeholder={"例：燃えるゴミ出し、リビング掃除等"}
                 value={name} onChange={inputName}
             />
             <Form.Group className="mb-3">

@@ -5,7 +5,7 @@ export const isValidEmailFormat = (email) => {
 
 export const validPasswordMessage = (password) => {
     if (password.length >= 1 && password.length < 8) {
-        return "パスワードは8文字以上です。"
+        return "※パスワードは8文字以上です。"
     } else {
         return ""
     }

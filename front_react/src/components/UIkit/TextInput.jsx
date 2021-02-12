@@ -11,7 +11,9 @@ const TextInput = (props) => {
                         <InputGroup.Text>{props.icon}</InputGroup.Text>                
                     </InputGroup.Prepend>
                 )}
-                <FormControl type={props.type} value={props.value} onChange={props.onChange} />
+                <FormControl
+                    type={props.type} placeholder={props.placeholder}
+                    value={props.value} onChange={props.onChange} />
             </InputGroup>
         </Form.Group>
     )
