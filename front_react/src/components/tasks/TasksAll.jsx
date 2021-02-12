@@ -45,7 +45,7 @@ const TasksAll = () => {
                                             <Table className="m-0 mt-3" bordered size="sm" striped>
                                                 <tbody>
                                                     <tr>
-                                                        <th>実施日</th>
+                                                        <th>実行日</th>
                                                         <td className="text-primary">{dateFormat(task.do_at, "mm/dd(ddd) HH:MM")}</td>
                                                     </tr>
                                                     <tr>

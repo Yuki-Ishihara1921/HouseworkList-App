@@ -1,7 +1,7 @@
 import React, { useCallback, useState, useEffect } from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { TextInput } from '../UIkit'
+import { ClickButton, TextInput } from '../UIkit'
 import { Button, Form, FormControl, InputGroup } from 'react-bootstrap'
 import { saveTask } from '../../reducks/tasks/operations'
 
@@ -44,7 +44,7 @@ const TaskEdit = (props) => {
         <Form>
             <h4 className="text-headline">タスク編集</h4>
             <TextInput
-                label={"● タスク名"} type={"text"}
+                label={"● やること"} type={"text"}
                 value={name} onChange={inputName}
             />
             <Form.Group className="mb-3">
@@ -64,12 +64,10 @@ const TaskEdit = (props) => {
                 value={doAt} onChange={inputDoAt}
             />
             <div className="text-center">
-                <Button
-                    variant="success"
+                <ClickButton
+                    label={props.label} variant={"success"}
                     onClick={() => dispatch(saveTask(props.id, name, interval, doAt, props.onClose))}
-                >
-                        {props.label}
-                </Button>
+                />
             </div>
         </Form>
     )

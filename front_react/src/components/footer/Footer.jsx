@@ -4,6 +4,7 @@ import { push } from 'connected-react-router'
 import { TaskEdit } from '../tasks'
 import { Button } from 'react-bootstrap'
 import Modal from 'react-modal'
+import { ClickButton } from '../UIkit'
 
 const Footer = () => {
     const dispatch = useDispatch()
@@ -15,27 +16,21 @@ const Footer = () => {
         <>
             {isSignedIn && (
                 <footer className="fixed-bottom">
-                    <Button
-                        className="col-5" variant="primary"
+                    <ClickButton
+                        className={"col-5"} label={"今日のタスク"} variant={"primary"}
                         onClick={() => dispatch(push('/'))}
-                    >
-                        今日のタスク
-                    </Button>
-                    <Button
-                        className="col-2" variant="secondary"
+                    />
+                    <ClickButton
+                        className={"col-2"} label={"New"} variant={"secondary"}
                         onClick={() => setIsOpen(true)}
-                    >
-                        New
-                    </Button>
+                    />
+                    <ClickButton
+                        className={"col-5"} label={"タスク一覧"} variant={"info"}
+                        onClick={() => dispatch(push('/tasklist'))}
+                    />
                     <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
                         <TaskEdit id={""} label={"作成"} onClose={() => setIsOpen(false)} />
                     </Modal>
-                    <Button
-                        className="col-5" variant="info"
-                        onClick={() => dispatch(push('/tasklist'))}
-                    >
-                        タスク一覧
-                    </Button>
                 </footer>
             )}
         </>

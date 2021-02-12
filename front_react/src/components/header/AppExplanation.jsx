@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ImagePageTop, ImagePageList } from '../../assets/images'
 import { Button } from 'react-bootstrap'
+import { ClickButton } from '../UIkit';
 
 const AppExplanation = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -19,12 +20,10 @@ const AppExplanation = () => {
 
     return (
         <>
-            <Button
-                variant="secondary" className="ms-3 rounded-circle"
+            <ClickButton
+                className={"ms-3 rounded-circle"} label={"？"} variant={"secondary"}
                 onClick={() => setIsOpen(true)}
-            >
-                ？
-            </Button>
+            />
             <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>
                 <h3 className="text-info">★How To Use★</h3>
                 <Slider {...settings}>
