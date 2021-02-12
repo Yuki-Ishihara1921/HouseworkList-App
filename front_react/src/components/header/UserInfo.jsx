@@ -12,7 +12,7 @@ const UserInfo = () => {
     return (
         <>
             <Dropdown>
-                <Dropdown.Toggle variant="info">
+                <Dropdown.Toggle variant="info" size="sm">
                     <PersonCircle className="fs-4" />
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="text-center">
