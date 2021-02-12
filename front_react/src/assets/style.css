@@ -24,6 +24,18 @@
 .signUp__container {
   margin: 20px 0;
 }
+.loading__container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 9999;
+}
 
 /* ----------------- */
 
@@ -160,21 +172,7 @@ button {
   box-shadow: none;
 }
 .slick-prev::before, .slick-next::before {
-  color: #555;
+  color: #555 !important;
 }
 
 /* ----------------- */
-
-
-.loading__container {
-  display: flex;
-  position: fixed;
-  top: 0;
-  left: 0;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.7);
-  z-index: 9999;
-}

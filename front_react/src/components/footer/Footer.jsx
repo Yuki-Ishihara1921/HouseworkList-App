@@ -4,7 +4,7 @@ import { push } from 'connected-react-router'
 import { TaskEdit } from '../tasks'
 import { Button } from 'react-bootstrap'
 import Modal from 'react-modal'
-import { ClickButton } from '../UIkit'
+import { ButtonClick } from '../UIkit'
 
 const Footer = () => {
     const dispatch = useDispatch()
@@ -16,15 +16,15 @@ const Footer = () => {
         <>
             {isSignedIn && (
                 <footer className="fixed-bottom">
-                    <ClickButton
+                    <ButtonClick
                         className={"col-5"} label={"今日のタスク"} variant={"primary"}
                         onClick={() => dispatch(push('/'))}
                     />
-                    <ClickButton
+                    <ButtonClick
                         className={"col-2"} label={"New"} variant={"secondary"}
                         onClick={() => setIsOpen(true)}
                     />
-                    <ClickButton
+                    <ButtonClick
                         className={"col-5"} label={"タスク一覧"} variant={"info"}
                         onClick={() => dispatch(push('/tasklist'))}
                     />

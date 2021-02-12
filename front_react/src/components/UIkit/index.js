@@ -1,3 +1,3 @@
-export { default as ClickButton } from './ClickButton'
-export { default as TextInput } from './TextInput'
+export { default as ButtonClick } from './ButtonClick'
 export { default as LoadSpinner } from './LoadSpinner'
+export { default as TextInput } from './TextInput'

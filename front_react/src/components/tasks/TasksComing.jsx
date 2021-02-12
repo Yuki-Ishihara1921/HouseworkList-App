@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import dateFormat from 'dateformat'
-import { LoadSpinner } from '../UIkit'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchComingTasks } from '../../reducks/tasks/operations'
+import { LoadSpinner } from '../UIkit'
 
 const TasksComing = () => {
     const dispatch = useDispatch()
     const selector = useSelector((state) => state)
-    const tasks = selector.comingTasks.list
     const isLoading = selector.loading.isComingTasks
+    const tasks = selector.comingTasks.list
 
     useEffect(() => {
         dispatch(fetchComingTasks())

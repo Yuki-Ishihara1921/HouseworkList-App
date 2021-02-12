@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal'
 import { useDispatch } from 'react-redux'
+import { deleteTask } from '../../reducks/tasks/operations'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
 import { PencilSquare, TrashFill } from 'react-bootstrap-icons'
 import TaskEdit from './TaskEdit'
-import { deleteTask } from '../../reducks/tasks/operations'
 
 const TaskDropdown = (props) => {
     const dispatch = useDispatch()

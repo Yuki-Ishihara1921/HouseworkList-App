@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { signOut } from '../../reducks/users/operations'
 import { Dropdown } from 'react-bootstrap'
 import { PersonCircle } from 'react-bootstrap-icons'
-import { signOut } from '../../reducks/users/operations'
 
 const UserInfo = () => {
     const dispatch = useDispatch()

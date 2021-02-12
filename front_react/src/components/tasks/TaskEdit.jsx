@@ -1,9 +1,9 @@
-import React, { useCallback, useState, useEffect } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { ClickButton, TextInput } from '../UIkit'
-import { Button, Form, FormControl, InputGroup } from 'react-bootstrap'
 import { saveTask } from '../../reducks/tasks/operations'
+import { Form, FormControl, InputGroup } from 'react-bootstrap'
+import { ButtonClick, TextInput } from '../UIkit'
 
 const TaskEdit = (props) => {
     const dispatch = useDispatch()
@@ -63,9 +63,9 @@ const TaskEdit = (props) => {
                 label={"● 実行日"} type={"datetime-local"}
                 value={doAt} onChange={inputDoAt}
             />
-            <div className="text-center">
-                <ClickButton
-                    label={props.label} variant={"success"}
+            <div className="mt-4 text-center">
+                <ButtonClick
+                    className={"w-50"} label={props.label} variant={"success"}
                     onClick={() => dispatch(saveTask(props.id, name, interval, doAt, props.onClose))}
                 />
             </div>

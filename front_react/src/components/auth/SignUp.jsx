@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react'
 import Modal from 'react-modal'
 import { useDispatch, useSelector } from 'react-redux'
+import { signUp } from '../../reducks/users/operations'
 import { Form } from 'react-bootstrap'
 import { PersonCircle, Envelope, Key } from 'react-bootstrap-icons'
-import { TextInput, ClickButton, LoadSpinner } from '../UIkit'
-import { signUp } from '../../reducks/users/operations'
+import { TextInput, ButtonClick, LoadSpinner } from '../UIkit'
 import { validPasswordMessage } from '../../functions/validates'
 
 const SignUp = () => {
@@ -72,8 +72,8 @@ const SignUp = () => {
                             />
                             <p className="text-danger">{confirmPasswordMessage}</p>
                             <div className="m-4 text-center">
-                                <ClickButton
-                                    variant={"primary"} label={"登録"}
+                                <ButtonClick
+                                    label={"登録"} variant={"primary"}
                                     onClick={() => dispatch(signUp(username, email, password, confirmPassword))}
                                 />
                             </div>

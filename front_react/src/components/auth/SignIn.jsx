@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { signIn } from '../../reducks/users/operations'
 import { Form } from 'react-bootstrap'
 import { Envelope, Key } from 'react-bootstrap-icons'
-import { TextInput, ClickButton, LoadSpinner } from '../UIkit'
-import { signIn } from '../../reducks/users/operations'
+import { ButtonClick, LoadSpinner, TextInput } from '../UIkit'
 
 const SignIn = () => {
     const dispatch = useDispatch()
@@ -37,7 +37,10 @@ const SignIn = () => {
                     type={"password"} onChange={inputPassword}
                 />
                 <div className="m-4 text-center">
-                    <ClickButton variant={"success"} onClick={() => dispatch(signIn(email, password))} label={"ログイン"} />
+                    <ButtonClick
+                        label={"ログイン"} variant={"success"}
+                        onClick={() => dispatch(signIn(email, password))}
+                    />
                 </div>
             </Form>
         </>

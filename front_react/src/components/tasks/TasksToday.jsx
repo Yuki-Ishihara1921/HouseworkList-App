@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import dateFormat from 'dateformat'
 import { useDispatch, useSelector } from 'react-redux'
-import { LoadSpinner } from '../UIkit'
-import { CompleteTaskButton } from '../tasks'
 import { fetchTodayTasks } from '../../reducks/tasks/operations'
+import { CompleteTaskButton } from '../tasks'
+import { LoadSpinner } from '../UIkit'
 
 const TasksToday = () => {
     const dispatch = useDispatch()

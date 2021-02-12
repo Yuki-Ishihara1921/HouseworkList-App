@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 
-const ClickButton = (props) => {
+const ButtonClick = (props) => {
     return (
         <Button className={props.className} variant={props.variant} onClick={props.onClick}>
             {props.label}
@@ -9,4 +9,4 @@ const ClickButton = (props) => {
     )
 }
 
-export default ClickButton
+export default ButtonClick

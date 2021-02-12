@@ -9,7 +9,7 @@ const Header = () => {
 
     return (
         <header className="fixed-top px-2 py-1 border-bottom bg-light">
-            <section className="d-flex">
+            <div className="d-flex">
                 <span className="header__appName">Housework List</span>
                 {isSignedIn && (
                     <div className="d-flex ms-auto">
@@ -17,7 +17,7 @@ const Header = () => {
                         <AppExplanation />
                     </div>
                 )}
-            </section>
+            </div>
         </header>
     )
 }

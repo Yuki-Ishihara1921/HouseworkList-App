@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router'
-import Auth from './Auth'
 import { PageAuth, PageTop, PageList } from './pages'
+import Auth from './Auth'
 
 const Router = () => {
     return (
