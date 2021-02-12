@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { push } from 'connected-react-router'
 import {
-    showAllTasksLoadingAction, hideAllTasksLoadingAction,
+    showAllTasksLoadingAction, hideLoadingAction,
     showTodayTasksLoadingAction, hideTodayTasksLoadingAction,
     showComingTasksLoadingAction, hideComingTasksLoadingAction
 } from '../loading/actions'
@@ -17,7 +17,7 @@ export const fetchAllTasks = () => {
         })
         .then(response => {
             dispatch(fetchAllTasksAction(response.data))
-            dispatch(hideAllTasksLoadingAction())
+            dispatch(hideLoadingAction())
         })
     }
 }

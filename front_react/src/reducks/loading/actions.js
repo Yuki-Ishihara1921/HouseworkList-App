@@ -1,19 +1,19 @@
+export const SHOW_LOGIN_LOADING = 'SHOW_LOGIN_LOADING'
+export const showLoginLoadingAction = () => {
+    return {
+        type: SHOW_LOGIN_LOADING,
+        payload: {
+            isLogin: true
+        }
+    }
+}
+
 export const SHOW_ALLTASKS_LOADING = 'SHOW_ALLTASKS_LOADING'
 export const showAllTasksLoadingAction = () => {
     return {
         type: SHOW_ALLTASKS_LOADING,
         payload: {
             isAllTasks: true
-        }
-    }
-}
-
-export const HIDE_ALLTASKS_LOADING = 'HIDE_ALLTASKS_LOADING'
-export const hideAllTasksLoadingAction = () => {
-    return {
-        type: HIDE_ALLTASKS_LOADING,
-        payload: {
-            isAllTasks: false
         }
     }
 }
@@ -54,6 +54,19 @@ export const hideComingTasksLoadingAction = () => {
         type: HIDE_COMINGTASKS_LOADING,
         payload: {
             isComingTasks: false
+        }
+    }
+}
+
+export const HIDE_LOADING = 'HIDE_LOADING'
+export const hideLoadingAction = () => {
+    return {
+        type: HIDE_LOADING,
+        payload: {
+            isLogin: false,
+            isAllTasks: false,
+            isTodayTasks: false,
+            isComingTasks: false,
         }
     }
 }

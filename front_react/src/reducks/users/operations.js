@@ -2,6 +2,7 @@ import axios from 'axios'
 import { push } from 'connected-react-router'
 import { setCookie, removeCookie, getCookieObject } from '../../functions/cookies'
 import { isValidEmailFormat } from '../../functions/validates'
+import { showLoginLoadingAction, hideLoadingAction } from '../loading/actions'
 import { signInAction, signOutAction } from './actions'
 
 export const signUp = (username, email, password, confirmPassword) => {
@@ -27,6 +28,7 @@ export const signUp = (username, email, password, confirmPassword) => {
             if (!res) {
                 return false
             } else {
+                dispatch(showLoginLoadingAction())
                 const signUpUser = {
                     name: username,
                     email: email,
@@ -43,9 +45,11 @@ export const signUp = (username, email, password, confirmPassword) => {
                         username: data.username,
                         usertoken: data.usertoken
                     }))
+                    dispatch(hideLoadingAction())
                     dispatch(push('/'))
                 })
                 .catch(() => {
+                    dispatch(hideLoadingAction())
                     alert("アカウントが登録されませんでした。再入力して下さい。")
                     return false
                 })
@@ -56,11 +60,14 @@ export const signUp = (username, email, password, confirmPassword) => {
 
 export const signIn = (email, password) => {
     return async (dispatch) => {
+        dispatch(showLoginLoadingAction())
         if (email === "" || password === "") {
+            dispatch(hideLoadingAction())
             alert("未入力の項目があります。")
             return false
         }
         if (!isValidEmailFormat(email)) {
+            dispatch(hideLoadingAction())
             alert("メールアドレスの形式が正しくありません。再入力して下さい。")
             return false
         }
@@ -78,9 +85,11 @@ export const signIn = (email, password) => {
                 usertoken: data.usertoken
             }))
             setCookie(data.username, data.usertoken)
+            dispatch(hideLoadingAction())
             dispatch(push('/'))
         })
         .catch(() => {
+            dispatch(hideLoadingAction())
             alert("ユーザーが見つかりませんでした。")
             return false
         })
