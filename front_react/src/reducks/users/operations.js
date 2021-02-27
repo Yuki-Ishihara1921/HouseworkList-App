@@ -1,9 +1,9 @@
 import axios from 'axios'
 import { push } from 'connected-react-router'
+import { signInAction, signOutAction } from './actions'
+import { showLoginLoadingAction, hideLoadingAction } from '../loading/actions'
 import { setCookie, removeCookie, getCookieObject } from '../../functions/cookies'
 import { isValidEmailFormat } from '../../functions/validates'
-import { showLoginLoadingAction, hideLoadingAction } from '../loading/actions'
-import { signInAction, signOutAction } from './actions'
 
 export const signUp = (username, email, password, confirmPassword) => {
     return async (dispatch) => {

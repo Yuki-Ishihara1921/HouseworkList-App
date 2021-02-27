@@ -17,7 +17,7 @@ const TasksAll = () => {
     }, [])
 
     return (
-        <Container className="mb-5">
+        <Container>
             {isLoading ? (
                 <div className="w-100 text-center">
                     <LoadSpinner />

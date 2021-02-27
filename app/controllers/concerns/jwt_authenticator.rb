@@ -10,6 +10,10 @@ module JwtAuthenticator
 
     def decode(encoded_token)
         decoded_jwt = JWT.decode(encoded_token, SECRET_KEY_BASE, true, algorithm: 'HS256')
-        decoded_jwt.first
+        begin
+            decoded_jwt.first
+        rescue => e
+            p e.message
+        end
     end
 end

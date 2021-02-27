@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { push } from 'connected-react-router'
 import { TaskEdit } from '../tasks'
-import { Button } from 'react-bootstrap'
 import Modal from 'react-modal'
 import { ButtonClick } from '../UIkit'
 

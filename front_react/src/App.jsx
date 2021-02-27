@@ -7,7 +7,7 @@ const App = () => {
     return (
         <>
             <Header />
-            <main className="mt-5">
+            <main className="my-5">
                 <Router />
             </main>
             <Footer />
