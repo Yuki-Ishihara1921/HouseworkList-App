@@ -14,7 +14,8 @@ const initialState = {
         list: []
     },
     loading: {
-        isLogin: false,
+        isSignUp: false,
+        isSignIn: false,
         isAllTasks: false,
         isTodayTasks: false,
         isComingTasks: false,

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { push } from 'connected-react-router'
 import { signInAction, signOutAction } from './actions'
-import { showLoginLoadingAction, hideLoadingAction } from '../loading/actions'
+import { showSignUpLoadingAction, showSignInLoadingAction, hideLoadingAction } from '../loading/actions'
 import { setCookie, removeCookie, getCookieObject } from '../../functions/cookies'
 import { isValidEmailFormat } from '../../functions/validates'
 
@@ -28,7 +28,7 @@ export const signUp = (username, email, password, confirmPassword) => {
             if (!res) {
                 return false
             } else {
-                dispatch(showLoginLoadingAction())
+                dispatch(showSignUpLoadingAction())
                 const signUpUser = {
                     name: username,
                     email: email,
@@ -60,7 +60,7 @@ export const signUp = (username, email, password, confirmPassword) => {
 
 export const signIn = (email, password) => {
     return async (dispatch) => {
-        dispatch(showLoginLoadingAction())
+        dispatch(showSignInLoadingAction())
         if (email === "" || password === "") {
             dispatch(hideLoadingAction())
             alert("未入力の項目があります。")

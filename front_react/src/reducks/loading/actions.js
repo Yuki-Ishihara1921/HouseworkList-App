@@ -1,9 +1,19 @@
-export const SHOW_LOGIN_LOADING = 'SHOW_LOGIN_LOADING'
-export const showLoginLoadingAction = () => {
+export const SHOW_SIGNUP_LOADING = 'SHOW_SIGNUP_LOADING'
+export const showSignUpLoadingAction = () => {
     return {
-        type: SHOW_LOGIN_LOADING,
+        type: SHOW_SIGNUP_LOADING,
         payload: {
-            isLogin: true
+            isSignUp: true
+        }
+    }
+}
+
+export const SHOW_SIGNIN_LOADING = 'SHOW_LOGIN_LOADING'
+export const showSignInLoadingAction = () => {
+    return {
+        type: SHOW_SIGNIN_LOADING,
+        payload: {
+            isSignIn: true
         }
     }
 }
@@ -63,7 +73,8 @@ export const hideLoadingAction = () => {
     return {
         type: HIDE_LOADING,
         payload: {
-            isLogin: false,
+            isSignUp: false,
+            isSignIn: false,
             isAllTasks: false,
             isTodayTasks: false,
             isComingTasks: false,

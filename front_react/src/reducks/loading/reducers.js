@@ -3,7 +3,12 @@ import initialState from '../store/initialState'
 
 export const LoadingReducer = (state = initialState.loading, action) => {
     switch (action.type) {
-        case Actions.SHOW_LOGIN_LOADING:
+        case Actions.SHOW_SIGNUP_LOADING:
+            return {
+                ...state,
+                ...action.payload
+            }
+        case Actions.SHOW_SIGNIN_LOADING:
             return {
                 ...state,
                 ...action.payload
