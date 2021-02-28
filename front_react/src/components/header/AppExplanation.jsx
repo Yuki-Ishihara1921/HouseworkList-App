@@ -20,7 +20,7 @@ const AppExplanation = () => {
     return (
         <>
             <ButtonClick
-                className={"ms-3 rounded-circle"} label={"？"}
+                className={"btn-sm ms-3 my-auto rounded-circle"} label={"？"}
                 variant={"secondary"} onClick={() => setIsOpen(true)}
             />
             <Modal isOpen={isOpen} onRequestClose={() => setIsOpen(false)}>

@@ -27,7 +27,7 @@ const TasksComing = () => {
                                 return (
                                     <div className="tasksComing_content border-coming" key={task.id}>
                                         <span className="tasksComing_date">{dateFormat(task.do_at, 'mm / dd')}</span>
-                                        <h5 className="m-auto px-0 py-1 fw-bold">{task.name}</h5>
+                                        <h5 className="m-auto p-2 fw-bold">{task.name}</h5>
                                     </div>
                                 )
                             })}

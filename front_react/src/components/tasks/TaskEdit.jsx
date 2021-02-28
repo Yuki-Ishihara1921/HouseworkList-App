@@ -48,7 +48,7 @@ const TaskEdit = (props) => {
                 value={name} onChange={inputName}
             />
             <Form.Group className="mb-3">
-                <Form.Label>● 実行頻度</Form.Label>
+                <Form.Label>● 実行頻度 (日数)</Form.Label>
                 <InputGroup style={{width: '50%'}}>
                     <FormControl
                         type="number" min="1" max="365"
