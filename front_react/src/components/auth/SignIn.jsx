@@ -8,7 +8,7 @@ import { ButtonClick, LoadSpinner, TextInput } from '../UIkit'
 const SignIn = () => {
     const dispatch = useDispatch()
     const selector = useSelector((state) => state)
-    const isLoading = selector.loading.isLogin
+    const isLoading = selector.loading.isSignIn
     const [email, setEmail] = useState(""),
           [password, setPassword] = useState("")
 
@@ -23,8 +23,8 @@ const SignIn = () => {
     return (
         <>
             {isLoading && (
-                <div className="loading__container text-info">
-                    <LoadSpinner />
+                <div className="loading__container">
+                    <LoadSpinner text={"ログイン中..."} />
                 </div>
             )}
             <Form className="signIn">

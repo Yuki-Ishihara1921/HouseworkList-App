@@ -18,7 +18,7 @@ const TasksComing = () => {
         <div className="tasksComing">
             <h5 className="text-headline">近日のタスク</h5>
             {isLoading ? (
-                <LoadSpinner />
+                <LoadSpinner text={"データ取得中..."} />
             ) : (
                 <>
                     {tasks.length ? (

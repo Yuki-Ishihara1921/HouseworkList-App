@@ -20,7 +20,7 @@ const TasksAll = () => {
         <Container>
             {isLoading ? (
                 <div className="w-100 text-center">
-                    <LoadSpinner />
+                    <LoadSpinner text={"データ取得中..."} />
                 </div>
             ) : (
                 <>

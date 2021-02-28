@@ -18,7 +18,7 @@ const TasksToday = () => {
     return (
         <div className="tasksToday">
             {isLoading ? (
-                <LoadSpinner />
+                <LoadSpinner text={"データ取得中..."} />
             ) : (
                 <>
                     {tasks.length ? (

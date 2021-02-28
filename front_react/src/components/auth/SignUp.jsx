@@ -10,7 +10,7 @@ import { validPasswordMessage } from '../../functions/validates'
 const SignUp = () => {
     const dispatch = useDispatch()
     const selector = useSelector((state) => state)
-    const isLoading = selector.loading.isLogin
+    const isLoading = selector.loading.isSignUp
     const [isOpen, setIsOpen] = useState(false),
           [username, setUsername] = useState(""),
           [email, setEmail] = useState(""),
@@ -42,7 +42,7 @@ const SignUp = () => {
         <>
             {isLoading && (
                 <div className="loading__container text-info">
-                    <LoadSpinner />
+                    <LoadSpinner text={"アカウント登録中..."} />
                 </div>
             )}
             <div className="m-3">
