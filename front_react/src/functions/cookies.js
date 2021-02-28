@@ -21,7 +21,7 @@ export const getCookieObject = () => {
 }
 
 export const setCookie = (username, usertoken) => {
-    const exp = 60 * 60 * 24 * 31 * 6
+    const exp = 60 * 60 * 24 * 31 * 3
     document.cookie = 'username=' + username + ';max-age=' + exp
     document.cookie = 'usertoken=' + usertoken + ';max-age=' + exp
 }
