@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { push } from 'connected-react-router'
-import { TaskEdit } from '../tasks'
 import Modal from 'react-modal'
+import { TaskEdit } from '../tasks'
 import { ButtonClick } from '../UIkit'
 
 const Footer = () => {
