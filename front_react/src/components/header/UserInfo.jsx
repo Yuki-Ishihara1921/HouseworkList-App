@@ -16,9 +16,11 @@ const UserInfo = () => {
                     <PersonCircle className="fs-4" />
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="text-center">
-                    <Dropdown.Item className="text-primary" disabled>{username}</Dropdown.Item>
+                    <Dropdown.Item disabled>{username}</Dropdown.Item>
                     <Dropdown.Divider />
-                    <Dropdown.Item onClick={() => dispatch(signOut())}>ログアウト</Dropdown.Item>
+                    <Dropdown.Item className="text-primary" onClick={() => dispatch(signOut())}>
+                        ログアウト
+                    </Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>
         </>
