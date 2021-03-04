@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
-import dateFormat from 'dateformat'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTodayTasks } from '../../reducks/tasks/operations'
 import { CompleteTaskButton } from '../tasks'
 import { LoadSpinner } from '../UIkit'
+import { getDateInformations } from '../../functions/datetime'
+import dateFormat from 'dateformat'
 
 const TasksToday = () => {
     const dispatch = useDispatch()
@@ -24,12 +25,15 @@ const TasksToday = () => {
                     {tasks.length ? (
                         <>
                             {tasks.map((task) => {
-                                const now = new Date().getTime()
-                                const taskDoAt = new Date(task.do_at).getTime()
+                                const infos = getDateInformations(task.do_at)
+                                const now = infos.todayTime
+                                const doAt = infos.doAtTime
                                 return (
                                     <div className="tasksToday_content" key={task.id}>
-                                        <div className={now > taskDoAt ? 'tasksToday_task border-expired' : 'tasksToday_task border-today'}>
-                                            <span className={now > taskDoAt ? 'tasksToday_task-time bg-expired' : 'tasksToday_task-time bg-today'}>{dateFormat(task.do_at, 'HH:MM')}</span>
+                                        <div className={now > doAt? 'tasksToday_task border-expired' : 'tasksToday_task border-today'}>
+                                            <span className={now > doAt ? 'tasksToday_task-time bg-expired' : 'tasksToday_task-time bg-today'}>
+                                                {dateFormat(task.do_at, 'HH:MM')}
+                                            </span>
                                             <h5 className="m-auto py-2 fw-bold">{task.name}</h5>
                                         </div>
                                         <div className="my-auto ps-3">
