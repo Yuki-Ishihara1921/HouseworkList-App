@@ -40,9 +40,6 @@ class TasksController < ApplicationController
     end
 
     def today
-        ## development
-        # @tasks = Task.where("do_at LIKE ?", "%#{Date.today}%").where(user_id: @current_user_id).order('do_at asc')
-        ## production
         @tasks = Task.where("to_char(do_at, 'YYYY-MM-DD') LIKE ?", "%#{Date.today}%").where(user_id: @current_user_id).order('do_at asc')
         render json: @tasks
     end
