@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTodayTasks } from '../../reducks/tasks/operations'
-import { CompleteTaskButton } from '../tasks'
+import CompleteTaskButton from './CompleteTaskButton'
 import { LoadSpinner } from '../UIkit'
 import { getDateInformations } from '../../functions/datetime'
 import dateFormat from 'dateformat'
@@ -17,7 +17,7 @@ const TasksToday = () => {
     }, [])
     
     return (
-        <div className="tasksToday">
+        <section className="tasksToday">
             {isLoading ? (
                 <LoadSpinner text={"データ取得中..."} />
             ) : (
@@ -30,8 +30,18 @@ const TasksToday = () => {
                                 const doAt = infos.doAtTime
                                 return (
                                     <div className="tasksToday_content" key={task.id}>
-                                        <div className={now > doAt? 'tasksToday_task border-expired' : 'tasksToday_task border-today'}>
-                                            <span className={now > doAt ? 'tasksToday_task-time bg-expired' : 'tasksToday_task-time bg-today'}>
+                                        <div
+                                            className={
+                                                now > doAt ?
+                                                'tasksToday_task border-expired' : 'tasksToday_task border-today'
+                                            }
+                                        >
+                                            <span
+                                                className={
+                                                    now > doAt ?
+                                                    'tasksToday_task-time bg-expired' : 'tasksToday_task-time bg-today'
+                                                }
+                                            >
                                                 {dateFormat(task.do_at, 'HH:MM')}
                                             </span>
                                             <h5 className="m-auto py-2 fw-bold">{task.name}</h5>
@@ -48,7 +58,7 @@ const TasksToday = () => {
                     )}
                 </>
             )}
-        </div>
+        </section>
     )
 }
 

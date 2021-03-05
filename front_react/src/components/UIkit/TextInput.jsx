@@ -12,8 +12,11 @@ const TextInput = (props) => {
                     </InputGroup.Prepend>
                 )}
                 <FormControl
-                    type={props.type} placeholder={props.placeholder}
-                    value={props.value} onChange={props.onChange} />
+                    type={props.type}
+                    placeholder={props.placeholder}
+                    value={props.value}
+                    onChange={props.onChange}
+                />
             </InputGroup>
         </Form.Group>
     )
