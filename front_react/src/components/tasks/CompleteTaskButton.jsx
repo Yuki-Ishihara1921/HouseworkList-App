@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { completeTask } from '../../reducks/tasks/operations'
-import { Check } from 'react-bootstrap-icons'
 import { ButtonClick } from '../UIkit'
+import { Check } from 'react-bootstrap-icons'
 
 const CompleteTaskButton = (props) => {
     const dispatch = useDispatch()

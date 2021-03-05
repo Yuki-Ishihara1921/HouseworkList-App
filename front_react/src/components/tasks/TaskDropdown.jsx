@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import Modal from 'react-modal'
 import { useDispatch } from 'react-redux'
 import { deleteTask } from '../../reducks/tasks/operations'
+import TaskEdit from './TaskEdit'
+import Modal from 'react-modal'
 import { Dropdown, DropdownButton } from 'react-bootstrap'
 import { PencilSquare, TrashFill } from 'react-bootstrap-icons'
-import TaskEdit from './TaskEdit'
 
 const TaskDropdown = (props) => {
     const dispatch = useDispatch()
@@ -12,7 +12,10 @@ const TaskDropdown = (props) => {
 
     return (
         <>
-            <DropdownButton className="m-auto" id="taskDropdown" title="" menuAlign="right" size="sm" variant="secondary" >
+            <DropdownButton
+                className="m-auto" id="taskDropdown" menuAlign="right"
+                title="" size="sm" variant="secondary"
+            >
                 <Dropdown.Item className="text-center" onClick={() => setIsOpen(true)}>
                     <span><PencilSquare /> </span>
                     編集する

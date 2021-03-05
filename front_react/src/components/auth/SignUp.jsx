@@ -2,10 +2,10 @@ import React, { useState, useCallback } from 'react'
 import Modal from 'react-modal'
 import { useDispatch, useSelector } from 'react-redux'
 import { signUp } from '../../reducks/users/operations'
-import { Form } from 'react-bootstrap'
-import { PersonCircle, Envelope, Key } from 'react-bootstrap-icons'
 import { TextInput, ButtonClick, LoadSpinner } from '../UIkit'
 import { validPasswordMessage } from '../../functions/validates'
+import { Form } from 'react-bootstrap'
+import { PersonCircle, Envelope, Key } from 'react-bootstrap-icons'
 
 const SignUp = () => {
     const dispatch = useDispatch()

@@ -1,9 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { saveTask } from '../../reducks/tasks/operations'
-import { Form, FormControl, InputGroup } from 'react-bootstrap'
 import { ButtonClick, TextInput } from '../UIkit'
+import axios from 'axios'
+import { Form, FormControl, InputGroup } from 'react-bootstrap'
 
 const TaskEdit = (props) => {
     const dispatch = useDispatch()

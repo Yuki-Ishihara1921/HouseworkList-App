@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { signIn } from '../../reducks/users/operations'
+import { ButtonClick, LoadSpinner, TextInput } from '../UIkit'
 import { Form } from 'react-bootstrap'
 import { Envelope, Key } from 'react-bootstrap-icons'
-import { ButtonClick, LoadSpinner, TextInput } from '../UIkit'
 
 const SignIn = () => {
     const dispatch = useDispatch()
