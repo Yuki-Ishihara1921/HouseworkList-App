@@ -16,12 +16,12 @@ const TaskDropdown = (props) => {
                 className="m-auto" id="taskDropdown" menuAlign="right"
                 title="" size="sm" variant="secondary"
             >
-                <Dropdown.Item className="text-center" onClick={() => setIsOpen(true)}>
+                <Dropdown.Item className="text-center text-info" onClick={() => setIsOpen(true)}>
                     <span><PencilSquare /> </span>
                     編集する
                 </Dropdown.Item>
                 <Dropdown.Divider />
-                <Dropdown.Item className="text-center" onClick={() => dispatch(deleteTask(props.id))}>
+                <Dropdown.Item className="text-center text-danger" onClick={() => dispatch(deleteTask(props.id))}>
                     <span><TrashFill /> </span>
                     削除する
                 </Dropdown.Item>
