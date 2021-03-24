@@ -13,11 +13,12 @@ const TaskBox = (props) => {
             className={
                 infos.todayTime < infos.doAtTime ? infos.todayString !== infos.doAtString ?
                 'listPage_content' : 'listPage_content border-today' : 'listPage_content border-expired'
-        }>
+            }
+        >
             <div className="w-100">
                 <div className="d-flex">
                     <h5 className="listPage_taskName">{task.name}</h5>
-                    <TaskDropdown id={task.id} />
+                    <TaskDropdown task={task} />
                 </div>
                 <Table className="m-0 mt-3" bordered size="sm" striped>
                     <tbody>

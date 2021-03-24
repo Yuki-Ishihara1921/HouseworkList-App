@@ -104,6 +104,7 @@ export const completeTask = (task) => {
         .then(() => {
             dispatch(fetchTodayTasks())
             dispatch(fetchComingTasks())
+            dispatch(fetchAllTasks())
         })
     }
 }
